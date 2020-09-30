@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ROLL-THE-DICE</title>
+    <style>
+        * {
+            margin: 0px;
+        }
+
+        #c {
+            height: 1400px;
+            width: 1320px;
+            background-color: darkred;
+        }
+
+        #parent {
+            width: 100%;
+            height: 100px;
+            background-color: darkred;
+
+
+        }
+
+        #text {
+            color: whitesmoke;
+            font-family: cursive;
+/*            margin-top: 10px;*/
+            font-size: 50px;
+            text-align: center;
+            float: left;
+            margin-left: 40%;
+            font-weight: bolder;
+            
+            
+        }
+
+        #text:hover {
+            background-color: yellow;
+        }
+
+        .parent2 {
+            background-color:darkred;
+            width: 100%;
+            height: 110px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            
+        }
+
+        .child {
+            height: 120px;
+            width: 120px;
+            background-color: black;
+            margin-top: 70px;
+            text-align: center;
+            margin-top: 2PX;
+        }
+
+        #parent3 {
+            width: 100%;
+            height: 39px;
+            background-color: black;
+            text-align: center;
+        }
+
+        .t {
+            margin-left: 0px;
+            /*            float: left;*/
+            color: whitesmoke;
+            font-family: cursive;
+            /*            margin-top: 27px;*/
+            font-size: 50px;
+            /*            text-align: center;*/
+            float: left;
+            /*            margin-left: 30%;*/
+            font-weight: bolder;
+            margin-top: 70px;
+        }
+
+        #parent3 {
+            width: 100%;
+            height: 150px;
+            display: flex ;
+            flex-direction: row;
+            justify-content: space-evenly;
+
+        }
+
+        #b {
+            width: 20%;
+            height: 50%;
+            background-color:darkgrey;
+            font-size: 20px;
+            font-weight: bolder;
+/*            margin-left: 40%;*/
+            margin-top:  50px;
+
+        }
+
+    </style>
+    <script type="text/javascript">
+        function doedit() {
+                  var p1 = prompt("enter the player1 name");
+                  var p2 = prompt("enter the player2 name");
+                  document.getElementById("text1").innerHTML=p1;
+                  document.getElementById("text2").innerHTML=p2;
+              
+         
+        }
+        function doroll()
+        {
+            var v = 3 ;
+          setTimeout(function()
+                     {
+              
+                var randomNumber1 = Math.floor(Math.random() * 6) + 1;
+                var randomNumber2 = Math.floor(Math.random() * 6) + 1;   
+//                alert(randomNumber1);
+//                alert(randomNumber2);
+//              
+              
+                document.getElementById("img1").setAttribute("src", "dice" + randomNumber1 + ".png");
+                document.getElementById("img2").setAttribute("src", "dice" + randomNumber2 + ".png");
+              
+//              
+//                document.querySelector(".img1").setAttribute("src",
+//                    "dice" + randomNumber1 + ".png");
+              if(randomNumber1==randomNumber2)
+                  {
+                      document.getElementById("text").innerHTML="DRAW";
+                  }
+              if(randomNumber1>randomNumber2)
+                  {
+                      document.getElementById("text").innerHTML=document.getElementById("text1").innerHTML+" "+"WINS!!!!";
+                  }
+               if(randomNumber2>randomNumber1)
+                  {
+                      v = v- 1;
+                      document.getElementById("text").innerHTML=document.getElementById("text2").innerHTML+" "+"WINS   !!!!";
+//                      document.getElementById("lives").innerHTML= v ;
+                      
+                  }
+                 
+              
+          },1500)
+        }
+
+    </script>
+</head>
+
+<body>
+    <div id="c">
+        <div id="parent">
+            <span id="text">lets play </span>
+        </div>
+        <div class="parent2">
+            <div class="child"><img id="img1" src="dice6.png">
+            </div>
+            <div class="child">
+                <img id="img2"src="dice6.png">
+            </div>
+        </div>
+        <p class="parent2">
+            <span class="t" id="text1">Player 1</span>
+            <span class="t" id="text2">Player 2</span>
+        </p>
+        <div id="parent3">
+            <input id="b" type="button" value="ROLL THE DICE" onclick="doroll();">
+            <input id="b" type="button" value="EDIT NAMES" onclick="doedit();">
+        </div>
+<!--
+        <div>
+          <span id="lives"><h1 style="color:whitesmoke;text-align: center">lives = 3</h1></span>
+        </div>
+-->
+
+    </div>
+</body>
+
+</html>
